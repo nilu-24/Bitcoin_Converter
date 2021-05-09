@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Converter</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            
+            <img src ="https://cdn2.vectorstock.com/i/thumb-large/16/51/crypto-currency-bitcoin-golden-symbol-vector-13481651.jpg">
+           
+            <h1 class="display-6 text-center mb-3">Bitcoin Converter</h1>
+            <br>
+            <form>
+              <div class="form-group">
+                <input id="bitcoinInput" type="number" class="form-control form-control-lg" placeholder="Enter Bitcoins...">
+              </div>
+            </form>
+            <div id="output">
+      <div class="card text-black bg-warning mb-3">
+                <div class="card-block">
+                  <h2>টাকা:</h2>
+                  <div id="takaOutput"></div>
+                </div>
+              </div>
+      
+              <div class="card text-black bg-warning mb-3">
+                <div class="card-block">
+                  <h2>US$:</h2>
+                  <div id="usdOutput"></div>
+                </div>
+              </div>
+      
+              <div class="card text-black bg-warning mb-3">
+                <div class="card-block">
+                  <h2>CAD$:</h2>
+                  <div id="cadOutput"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+          
+        
+//adding js
+//adding event 
+document.getElementById("bitcoinInput").addEventListener("input", converter);
+document.getElementById("output").style.backgroundColor = "black";
+function converter(e){
+  
+document.getElementById("output").style.visibility = "visible";
+  var bit = e.target.value;
+  //if negative
+  if(bit < 0){
+    alert("Enter a postive amount!")
+  }
+ 
+  //if empty make invisible
+  if(bit === "" || bit <0 ){ document.getElementById("output").style.visibility = "hidden";
+  }
+ //else convert
+ document.getElementById("takaOutput").innerHTML = bit * 4936797.47;
+ document.getElementById("usdOutput").innerHTML = bit * 58459.80;
+  document.getElementById("cadOutput").innerHTML = bit * 70942.72;
+
+}
+
+      </script>
+    
+</body>
+</html>
